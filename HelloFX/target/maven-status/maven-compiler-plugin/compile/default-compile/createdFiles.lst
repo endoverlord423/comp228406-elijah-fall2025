@@ -1,0 +1,4 @@
+com\example\hellofx\HelloApplication.class
+com\example\hellofx\Launcher.class
+module-info.class
+com\example\hellofx\HelloController.class
