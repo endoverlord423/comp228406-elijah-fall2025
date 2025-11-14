@@ -10,6 +10,8 @@ module com.example.hellofx {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires io.github.cdimascio.dotenv.java;
+    requires java.sql;
 
     opens com.example.hellofx to javafx.fxml;
     exports com.example.hellofx;

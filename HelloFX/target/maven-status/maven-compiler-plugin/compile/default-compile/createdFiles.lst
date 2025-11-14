@@ -1,4 +1,7 @@
-com\example\hellofx\HelloApplication.class
 com\example\hellofx\Launcher.class
 module-info.class
 com\example\hellofx\HelloController.class
+com\example\hellofx\HelloApplication.class
+com\example\hellofx\HelloController$1.class
+com\example\hellofx\PostgreSQLManager.class
+com\example\hellofx\StudentRecord.class

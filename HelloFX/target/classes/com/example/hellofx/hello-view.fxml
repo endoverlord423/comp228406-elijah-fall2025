@@ -1,16 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.hellofx.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.hellofx.HelloController"
+            prefWidth="960" prefHeight="600">
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header -->
+    <top>
+        <HBox spacing="10" styleClass="p-3 bg-light border-bottom">
+            <Label text="👤 User Information Application" styleClass="h4 m-0"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Light" onAction="#setLightTheme" styleClass="btn btn-outline-secondary"/>
+            <Button text="Dark" onAction="#setDarkTheme" styleClass="btn btn-secondary"/>
+        </HBox>
+    </top>
+
+    <!-- Content -->
+    <center>
+        <HBox spacing="16" styleClass="p-3">
+            <!-- Form Card -->
+            <VBox spacing="10" styleClass="card p-4" HBox.hgrow="NEVER" prefWidth="360">
+                <Label text="First Name:" styleClass="fw-bold"/>
+                <TextField fx:id="firstNameField" promptText="e.g., John" styleClass="form-control"/>
+
+                <Label text="Last Name:" styleClass="fw-bold"/>
+                <TextField fx:id="lastNameField" promptText="e.g., Doe" styleClass="form-control"/>
+
+                <Label text="Age:" styleClass="fw-bold"/>
+                <TextField fx:id="ageField" promptText="e.g., 19" styleClass="form-control"/>
+
+                <Label text="Favorite Color:" styleClass="fw-bold"/>
+                <TextField fx:id="colorField" promptText="e.g., Blue" styleClass="form-control"/>
+
+                <Label text="College Program:" styleClass="fw-bold"/>
+                <TextField fx:id="programField" promptText="e.g., Software" styleClass="form-control"/>
+
+                <HBox spacing="8" styleClass="pt-2">
+                    <Button fx:id="submitButton" text="Submit" styleClass="btn btn-primary"/>
+                    <Button text="Clear" onAction="#handleClear" styleClass="btn btn-outline-secondary"/>
+                    <Button fx:id="viewButton"   text="View Records" styleClass="btn btn-info"/>
+                </HBox>
+
+                <Label fx:id="statusLabel" text="" styleClass="text-muted small pt-2"/>
+            </VBox>
+
+            <!-- Table Card -->
+            <VBox spacing="10" styleClass="card p-3" HBox.hgrow="ALWAYS">
+                <Label text="Student Records" styleClass="h5 mb-2"/>
+                <TableView fx:id="recordTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="firstNameColumn" text="First Name" prefWidth="180"/>
+                        <TableColumn fx:id="lastNameColumn" text="Last Name" prefWidth="180"/>
+                        <TableColumn fx:id="detailsColumn" text="Details" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox spacing="12" styleClass="p-2 bg-light border-top">
+            <Label text="Total Records:" styleClass="text-muted"/>
+            <Label fx:id="recordCountLabel" text="0" styleClass="fw-bold"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label fx:id="connectionLabel" text="DB: Disconnected" styleClass="text-muted"/>
+        </HBox>
+    </bottom>
+</BorderPane>
