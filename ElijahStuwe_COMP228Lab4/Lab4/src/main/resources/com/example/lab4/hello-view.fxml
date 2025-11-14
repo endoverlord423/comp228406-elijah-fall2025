@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.lab4.HelloController"
+            prefWidth="800" prefHeight="800">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header -->
+    <top>
+        <HBox spacing="10" styleClass="p-3 bg-light border-bottom">
+            <Label text="Enter Your Information" styleClass="h3 m-0"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </top>
+
+    <!-- Content -->
+    <center>
+        <HBox spacing="16" styleClass="p-3">
+            <!-- Form Card -->
+            <VBox spacing="10" styleClass="card p-4" HBox.hgrow="NEVER" prefWidth="360">
+                <Label text="Name:" styleClass="fw-bold"/>
+                <TextField fx:id="nameField" promptText="e.g., John Doe" styleClass="form-control"/>
+
+                <Label text="Address:" styleClass="fw-bold"/>
+                <TextField fx:id="addressField" promptText="e.g., 100 Developer Road" styleClass="form-control"/>
+
+                <Label text="Province:" styleClass="fw-bold"/>
+                <TextField fx:id="provinceField" promptText="e.g., AB" styleClass="form-control"/>
+
+                <Label text="City:" styleClass="fw-bold"/>
+                <TextField fx:id="cityField" promptText="e.g., Edmonton" styleClass="form-control"/>
+
+                <Label text="Postal Code:" styleClass="fw-bold"/>
+                <TextField fx:id="postalCodeField" promptText="e.g., C0E 3X3" styleClass="form-control"/>
+
+                <Label text="Phone Number:" styleClass="fw-bold"/>
+                <TextField fx:id="phoneNumberField" promptText="e.g., 555 666 4444" styleClass="form-control"/>
+
+                <Label text="Email:" styleClass="fw-bold"/>
+                <TextField fx:id="emailField" promptText="e.g., jdoe@lumiere.ca" styleClass="form-control"/>
+
+                <HBox spacing="8" styleClass="pt-2">
+                    <Button fx:id="displayButton" text="Display" styleClass="btn btn-primary" />
+                </HBox>
+
+                <Label fx:id="statusLabel" text="" styleClass="text-muted small pt-2"/>
+            </VBox>
+
+            <VBox spacing="10" styleClass="card p-3" HBox.hgrow="ALWAYS">
+                <HBox spacing="12">
+                    <RadioButton  fx:id="computerScienceButton" userData="Computer Science">Computer Science</RadioButton>
+                    <RadioButton fx:id="businessButton" userData="Business">Business</RadioButton>
+                </HBox>
+                <ComboBox fx:id="courseSelection"></ComboBox>
+                <ListView fx:id="courseList" maxHeight="120"></ListView>
+                <HBox spacing="12">
+                    <CheckBox fx:id="studentCouncilBox" userData="Student Council">Student Council</CheckBox>
+                    <CheckBox fx:id="volunteerWorkBox" userData="Volunteer Work">Volunteer Work</CheckBox>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox spacing="12" styleClass="p-2 bg-light border-top">
+            <TextArea fx:id="infoArea"></TextArea>
+            <Pane HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </bottom>
+</BorderPane>
